@@ -1,3 +1,4 @@
+// 全屏播放器：收藏星标(FavoritesDao读写)、Visit website(系统浏览器)、分享(剪贴板)、章节/睡眠/倍速对话框
 import { PlaybackController } from '../../playback/PlaybackController';
 import { EpisodeDetailParam, FeedDetailParam, RouteName } from '../../common/AppRouter';
 import { promptAction } from '@kit.ArkUI';

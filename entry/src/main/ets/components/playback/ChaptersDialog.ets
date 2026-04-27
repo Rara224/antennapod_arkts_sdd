@@ -1,3 +1,4 @@
+// 章节选择弹窗：读取ChapterDao展示列表，点击跳转播放位置
 import { Chapter } from '../../models/Chapter';
 import { ChapterDao } from '../../database/ChapterDao';
 import { PlaybackController } from '../../playback/PlaybackController';

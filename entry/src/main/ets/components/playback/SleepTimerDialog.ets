@@ -1,3 +1,4 @@
+// 睡眠计时器弹窗：15/30/45/60分钟、集末暂停、取消，连接SleepTimer单例
 import { SleepTimer } from '../../playback/SleepTimer';
 import { EventBus, EVENT_SLEEP_TIMER } from '../../common/EventBus';
 import { SleepTimerData } from '../../common/EventData';

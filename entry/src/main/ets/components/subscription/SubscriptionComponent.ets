@@ -1,4 +1,5 @@
 import { SubscriptionViewModel } from '../../viewmodels/SubscriptionViewModel';
+// 订阅列表页：修复SortDialog调用(controllerRef模式防闪退)
 import {
   EventBus,
   EVENT_FEED_LIST_CHANGED,

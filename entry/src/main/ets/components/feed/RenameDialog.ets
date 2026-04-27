@@ -1,3 +1,4 @@
+// 重命名弹窗：编辑Feed自定义标题，保存到FeedDao
 @CustomDialog
 export struct RenameDialog {
   controller: CustomDialogController;

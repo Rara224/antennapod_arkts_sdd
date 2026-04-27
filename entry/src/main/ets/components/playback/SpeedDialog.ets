@@ -1,3 +1,4 @@
+// 倍速选择弹窗：6档离散倍速(0.75x-2.0x)+跳过静音开关
 import { PlaybackController } from '../../playback/PlaybackController';
 
 @CustomDialog

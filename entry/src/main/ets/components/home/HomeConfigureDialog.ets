@@ -1,3 +1,4 @@
+// 首页配置对话框：修复@CustomDialog闪退(onClose回调替代controller.close)
 export class HomeSectionConfig {
   key: string = '';
   label: string = '';

@@ -1,3 +1,4 @@
+// 标签编辑弹窗：逗号分隔，保存到FeedPreferences.tags
 @CustomDialog
 export struct TagsDialog {
   controller: CustomDialogController;

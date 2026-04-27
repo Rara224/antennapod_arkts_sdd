@@ -1,3 +1,4 @@
+// 收件箱组件：修复SortDialog调用(controllerRef模式防闪退)
 import {
   InboxViewModel,
   INBOX_SORT_DURATION_ASC,

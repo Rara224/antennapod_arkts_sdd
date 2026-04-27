@@ -1,3 +1,4 @@
+// 排序对话框：修复@CustomDialog闪退(onClose回调替代controller.close)
 export class SortOption {
   value: number = 0;
   label: string = '';
