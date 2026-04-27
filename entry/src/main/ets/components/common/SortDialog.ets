@@ -6,6 +6,7 @@ export class SortOption {
 @CustomDialog
 export struct SortDialog {
   controller: CustomDialogController;
+  onClose?: () => void;
   sortOptions: SortOption[] = [];
   currentSort: number = 0;
   onSortSelected: (sort: number) => void = () => {};
@@ -36,7 +37,7 @@ export struct SortDialog {
           }
           .onClick(() => {
             this.onSortSelected(option.value);
-            this.controller.close();
+            this.onClose?.();
           })
         }, (option: SortOption) => 'sort_' + option.value.toString())
       }
@@ -50,7 +51,7 @@ export struct SortDialog {
         .width('90%')
         .margin({ top: 16, bottom: 24 })
         .onClick(() => {
-          this.controller.close();
+          this.onClose?.();
         })
     }
     .width('100%')

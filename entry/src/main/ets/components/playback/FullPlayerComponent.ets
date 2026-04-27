@@ -1,7 +1,18 @@
 import { PlaybackController } from '../../playback/PlaybackController';
 import { EpisodeDetailParam, FeedDetailParam, RouteName } from '../../common/AppRouter';
 import { promptAction } from '@kit.ArkUI';
+import { pasteboard } from '@kit.BasicServicesKit';
+import { common } from '@kit.AbilityKit';
 import { FeedItemDao } from '../../database/FeedItemDao';
+import { FavoritesDao } from '../../database/FavoritesDao';
+import {
+  EventBus,
+  EVENT_FAVORITES_CHANGED
+} from '../../common/EventBus';
+import { FavoritesChangedData } from '../../common/EventData';
+import { ChaptersDialog } from './ChaptersDialog';
+import { SleepTimerDialog } from './SleepTimerDialog';
+import { SpeedDialog } from './SpeedDialog';
 
 @Component
 export struct FullPlayerComponent {
@@ -23,12 +34,37 @@ export struct FullPlayerComponent {
   @StorageLink('currentFeedId') currentFeedId: number = -1;
   @StorageLink('currentFeedLink') currentFeedLink: string = '';
   @StorageLink('skipSilence') skipSilence: boolean = false;
-  @State showSpeedDialog: boolean = false;
+  @State isFavorite: boolean = false;
   private controller: PlaybackController = PlaybackController.getInstance();
-  private validSpeeds: number[] = [0.75, 1.0, 1.25, 1.5, 1.75, 2.0];
 
   aboutToAppear(): void {
     this.isFullPlayerVisible = true;
+    this.checkFavoriteStatus();
+  }
+
+  private async checkFavoriteStatus(): Promise<void> {
+    if (this.currentEpisodeId > 0) {
+      const dao = new FavoritesDao();
+      this.isFavorite = await dao.isFavorite(this.currentEpisodeId);
+    }
+  }
+
+  private async toggleFavorite(): Promise<void> {
+    if (this.currentEpisodeId <= 0) {
+      return;
+    }
+    const dao = new FavoritesDao();
+    if (this.isFavorite) {
+      await dao.removeFromFavorites(this.currentEpisodeId);
+      this.isFavorite = false;
+      promptAction.showToast({ message: 'Removed from favorites' });
+    } else {
+      await dao.addToFavorites(this.currentEpisodeId, this.currentFeedId);
+      this.isFavorite = true;
+      promptAction.showToast({ message: 'Added to favorites' });
+    }
+    EventBus.getInstance().publish(EVENT_FAVORITES_CHANGED,
+      new FavoritesChangedData(this.currentEpisodeId, this.isFavorite));
   }
 
   aboutToDisappear(): void {
@@ -102,11 +138,15 @@ export struct FullPlayerComponent {
         const msg = 'I\'m listening to "' + this.currentEpisodeTitle +
           '" from ' + this.currentFeedTitle +
           (this.currentFeedLink.length > 0 ? ' ' + this.currentFeedLink : '');
-        promptAction.showToast({ message: msg, duration: 3000 });
+        const pasteData = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, msg);
+        pasteboard.getSystemPasteboard().setData(pasteData);
+        promptAction.showToast({ message: 'Copied', duration: 2000 });
       } else if (result.index === 1) {
         const mediaUrl = AppStorage.get<string>('currentMediaUrl');
         if (mediaUrl !== undefined && mediaUrl.length > 0) {
-          promptAction.showToast({ message: mediaUrl, duration: 3000 });
+          const pasteData = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, mediaUrl);
+          pasteboard.getSystemPasteboard().setData(pasteData);
+          promptAction.showToast({ message: 'Media URL copied', duration: 2000 });
         } else {
           promptAction.showToast({ message: 'No media address available' });
         }
@@ -127,13 +167,72 @@ export struct FullPlayerComponent {
     });
   }
 
-  private showSpeedPicker(): void {
-    this.showSpeedDialog = true;
+  private showSpeedDialog(): void {
+    let controllerRef: CustomDialogController | undefined = undefined;
+    const dialogController = new CustomDialogController({
+      builder: SpeedDialog({
+        currentSpeed: this.playbackSpeed,
+        skipSilence: this.skipSilence,
+        onClose: (): void => {
+          if (controllerRef !== undefined) {
+            controllerRef.close();
+          }
+        }
+      }),
+      autoCancel: true,
+      alignment: DialogAlignment.Bottom,
+      customStyle: true
+    });
+    controllerRef = dialogController;
+    dialogController.open();
+  }
+
+  private showSleepTimerDialog(): void {
+    let controllerRef: CustomDialogController | undefined = undefined;
+    const dialogController = new CustomDialogController({
+      builder: SleepTimerDialog({
+        onClose: (): void => {
+          if (controllerRef !== undefined) {
+            controllerRef.close();
+          }
+        }
+      }),
+      autoCancel: true,
+      alignment: DialogAlignment.Bottom,
+      customStyle: true
+    });
+    controllerRef = dialogController;
+    dialogController.open();
+  }
+
+  private showChaptersDialog(): void {
+    let controllerRef: CustomDialogController | undefined = undefined;
+    const dialogController = new CustomDialogController({
+      builder: ChaptersDialog({
+        episodeId: this.currentEpisodeId,
+        playbackPosition: this.playbackPosition,
+        onClose: (): void => {
+          if (controllerRef !== undefined) {
+            controllerRef.close();
+          }
+        }
+      }),
+      autoCancel: true,
+      alignment: DialogAlignment.Bottom,
+      customStyle: true
+    });
+    controllerRef = dialogController;
+    dialogController.open();
   }
 
   private onVisitWebsite(): void {
     if (this.currentFeedLink.length > 0) {
-      promptAction.showToast({ message: this.currentFeedLink, duration: 3000 });
+      try {
+        const ctx = getContext(this) as common.UIAbilityContext;
+        ctx.openLink(this.currentFeedLink);
+      } catch (e) {
+        promptAction.showToast({ message: 'Cannot open website' });
+      }
     } else {
       promptAction.showToast({ message: 'No website available' });
     }
@@ -157,14 +256,27 @@ export struct FullPlayerComponent {
 
           Blank()
 
-          // Favorite star (Android ic_star_border)
-          Image($r('app.media.ic_star_border'))
-            .width(24)
-            .height(24)
-            .margin({ right: 8 })
-            .onClick(() => {
-              promptAction.showToast({ message: 'Added to favorites' });
-            })
+          // Favorite star
+          if (this.isFavorite) {
+            Text('\u2605')
+              .fontSize(22)
+              .fontColor('#F5A623')
+              .width(24)
+              .height(24)
+              .textAlign(TextAlign.Center)
+              .margin({ right: 8 })
+              .onClick(() => {
+                this.toggleFavorite();
+              })
+          } else {
+            Image($r('app.media.ic_star_border'))
+              .width(24)
+              .height(24)
+              .margin({ right: 8 })
+              .onClick(() => {
+                this.toggleFavorite();
+              })
+          }
 
           // Sleep timer (Android ic_sleep — zzZ icon)
           Image($r('app.media.ic_sleep'))
@@ -172,7 +284,7 @@ export struct FullPlayerComponent {
             .height(24)
             .margin({ right: 8 })
             .onClick(() => {
-              promptAction.showToast({ message: 'Sleep timer' });
+              this.showSleepTimerDialog();
             })
 
           // Share (Android ic_share)
@@ -255,31 +367,56 @@ export struct FullPlayerComponent {
           .padding({ left: 24, right: 24 })
           .margin({ bottom: 16 })
 
-        // Shownotes pill button — outline style with info icon (matching Android)
+        // Shownotes + Chapters pill buttons — matching Android row
         Row() {
-          Text('\u24D8')
-            .fontSize(16)
-            .fontColor('#666666')
-            .margin({ right: 6 })
-          Text('Shownotes')
-            .fontSize(14)
-            .fontWeight(FontWeight.Medium)
-            .fontColor('#333333')
-        }
-        .height(36)
-        .borderRadius(18)
-        .border({ width: 1, color: '#CCCCCC' })
-        .backgroundColor(Color.Transparent)
-        .padding({ left: 16, right: 20 })
-        .justifyContent(FlexAlign.Center)
-        .margin({ bottom: 20 })
-        .onClick(() => {
-          if (this.currentEpisodeId > 0) {
-            const param = new EpisodeDetailParam();
-            param.episodeId = this.currentEpisodeId;
-            this.navPathStack.pushPathByName(RouteName.EPISODE_DETAIL, param);
+          // Shownotes
+          Row() {
+            Text('\u24D8')
+              .fontSize(16)
+              .fontColor('#666666')
+              .margin({ right: 6 })
+            Text('Shownotes')
+              .fontSize(14)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#333333')
           }
-        })
+          .height(36)
+          .borderRadius(18)
+          .border({ width: 1, color: '#CCCCCC' })
+          .backgroundColor(Color.Transparent)
+          .padding({ left: 16, right: 20 })
+          .justifyContent(FlexAlign.Center)
+          .onClick(() => {
+            if (this.currentEpisodeId > 0) {
+              const param = new EpisodeDetailParam();
+              param.episodeId = this.currentEpisodeId;
+              this.navPathStack.pushPathByName(RouteName.EPISODE_DETAIL, param);
+            }
+          })
+
+          // Chapters
+          Row() {
+            SymbolGlyph($r('sys.symbol.list_bullet'))
+              .fontSize(16)
+              .fontColor(['#666666'])
+              .margin({ right: 6 })
+            Text('Chapters')
+              .fontSize(14)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#333333')
+          }
+          .height(36)
+          .borderRadius(18)
+          .border({ width: 1, color: '#CCCCCC' })
+          .backgroundColor(Color.Transparent)
+          .padding({ left: 16, right: 20 })
+          .justifyContent(FlexAlign.Center)
+          .margin({ left: 10 })
+          .onClick(() => {
+            this.showChaptersDialog();
+          })
+        }
+        .margin({ bottom: 20 })
 
         // Progress slider — blue track (matching Android)
         Column() {
@@ -338,7 +475,7 @@ export struct FullPlayerComponent {
           .alignItems(HorizontalAlign.Center)
           .justifyContent(FlexAlign.Center)
           .onClick(() => {
-            this.showSpeedPicker();
+            this.showSpeedDialog();
           })
 
           // Rewind: Android ic_fast_rewind + seconds label
@@ -425,65 +562,6 @@ export struct FullPlayerComponent {
       .height('100%')
       .alignItems(HorizontalAlign.Center)
 
-      // Speed picker dialog overlay
-      if (this.showSpeedDialog) {
-        Column()
-          .width('100%')
-          .height('100%')
-          .backgroundColor('#40000000')
-          .onClick(() => {
-            this.showSpeedDialog = false;
-          })
-
-        Column() {
-          Text('Playback speed')
-            .fontSize(18)
-            .fontWeight(FontWeight.Bold)
-            .margin({ bottom: 16 })
-            .width('100%')
-
-          // Speed buttons row
-          Row() {
-            ForEach(this.validSpeeds, (speed: number) => {
-              Text(speed.toFixed(2) + 'x')
-                .fontSize(14)
-                .fontWeight(Math.abs(speed - this.playbackSpeed) < 0.01 ? FontWeight.Bold : FontWeight.Normal)
-                .fontColor(Math.abs(speed - this.playbackSpeed) < 0.01 ? Color.White : '#333333')
-                .backgroundColor(Math.abs(speed - this.playbackSpeed) < 0.01 ? '#1565C0' : '#F0F0F0')
-                .borderRadius(16)
-                .height(32)
-                .padding({ left: 10, right: 10 })
-                .textAlign(TextAlign.Center)
-                .margin({ right: 6 })
-                .onClick(() => {
-                  this.controller.setSpeed(speed);
-                })
-            }, (speed: number) => speed.toString())
-          }
-          .width('100%')
-          .justifyContent(FlexAlign.Center)
-          .margin({ bottom: 16 })
-
-          // Skip silence toggle
-          Row() {
-            Text('Skip silence')
-              .fontSize(16)
-              .layoutWeight(1)
-            Toggle({ type: ToggleType.Switch, isOn: this.skipSilence })
-              .selectedColor('#1565C0')
-              .onChange((isOn: boolean) => {
-                this.skipSilence = isOn;
-              })
-          }
-          .width('100%')
-          .padding({ top: 8, bottom: 8 })
-        }
-        .width('90%')
-        .padding(20)
-        .backgroundColor(Color.White)
-        .borderRadius(16)
-        .shadow({ radius: 8, color: '#33000000' })
-      }
       }
     }
     .hideTitleBar(true)

@@ -205,18 +205,26 @@ export struct SubscriptionComponent {
     });
   }
 
-  private sortDialogController: CustomDialogController = new CustomDialogController({
-    builder: SortDialog({
-      sortOptions: this.buildSortOptions(),
-      currentSort: this.sortOrder,
-      onSortSelected: (sort: number): void => {
-        this.sortOrder = sort;
-        this.sortFeeds();
-      }
-    }),
-    alignment: DialogAlignment.Bottom,
-    customStyle: false
-  });
+  private showSortDialog(): void {
+    let ref: CustomDialogController | undefined;
+    const ctrl = new CustomDialogController({
+      builder: SortDialog({
+        sortOptions: this.buildSortOptions(),
+        currentSort: this.sortOrder,
+        onSortSelected: (sort: number): void => {
+          this.sortOrder = sort;
+          this.sortFeeds();
+        },
+        onClose: (): void => {
+          ref?.close();
+        }
+      }),
+      alignment: DialogAlignment.Bottom,
+      customStyle: false
+    });
+    ref = ctrl;
+    ctrl.open();
+  }
 
   private buildSortOptions(): SortOption[] {
     const options: SortOption[] = [];
@@ -239,9 +247,7 @@ export struct SubscriptionComponent {
     return options;
   }
 
-  private showSortDialog(): void {
-    this.sortDialogController.open();
-  }
+  // showSortDialog() defined below buildSortOptions
 
   private sortFeeds(): void {
     const feeds = this.vm.feedDataSource.getAll();

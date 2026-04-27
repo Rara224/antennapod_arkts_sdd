@@ -1,7 +1,10 @@
 import { FeedSettingsParam } from '../../common/AppRouter';
 import { FeedDao } from '../../database/FeedDao';
+import { Feed } from '../../models/Feed';
 import { FeedPreferences } from '../../models/FeedPreferences';
 import { promptAction } from '@kit.ArkUI';
+import { RenameDialog } from './RenameDialog';
+import { TagsDialog } from './TagsDialog';
 import {
   AUTO_DL_DISABLED,
   AUTO_DL_GLOBAL,
@@ -30,12 +33,14 @@ export struct FeedSettingsComponent {
   @State episodeNotification: boolean = false;
   @State customTitle: string = '';
   private feedDao: FeedDao = new FeedDao();
+  private feed: Feed = new Feed();
   private prefs: FeedPreferences = new FeedPreferences();
 
   private async loadData(): Promise<void> {
     this.isLoading = true;
     const feed = await this.feedDao.getFeed(this.feedId);
     if (feed !== null) {
+      this.feed = feed;
       this.feedTitle = feed.getDisplayTitle();
       this.customTitle = feed.customTitle;
       this.prefs = feed.preferences;
@@ -111,6 +116,57 @@ export struct FeedSettingsComponent {
       return 'Add to Queue';
     }
     return 'Global default';
+  }
+
+  private showRenameDialog(): void {
+    let ref: CustomDialogController | undefined;
+    const ctrl = new CustomDialogController({
+      builder: RenameDialog({
+        currentTitle: this.customTitle,
+        onConfirm: async (newTitle: string): Promise<void> => {
+          if (newTitle.length > 0) {
+            this.customTitle = newTitle;
+            this.feed.customTitle = newTitle;
+            await this.feedDao.setFeed(this.feed);
+            this.feedTitle = this.feed.getDisplayTitle();
+          }
+        },
+        onClose: (): void => {
+          ref?.close();
+        }
+      }),
+      autoCancel: true,
+      alignment: DialogAlignment.Bottom,
+      customStyle: true
+    });
+    ref = ctrl;
+    ctrl.open();
+  }
+
+  private showTagsDialog(): void {
+    const tagsArr: string[] = [];
+    this.prefs.tags.forEach((tag: string) => {
+      tagsArr.push(tag);
+    });
+    const tagsStr = tagsArr.join(', ');
+    let ref: CustomDialogController | undefined;
+    const ctrl = new CustomDialogController({
+      builder: TagsDialog({
+        currentTagsStr: tagsStr,
+        onConfirm: async (newTags: Set<string>): Promise<void> => {
+          this.prefs.tags = newTags;
+          await this.feedDao.setFeedPreferences(this.prefs, this.feedId);
+        },
+        onClose: (): void => {
+          ref?.close();
+        }
+      }),
+      autoCancel: true,
+      alignment: DialogAlignment.Bottom,
+      customStyle: true
+    });
+    ref = ctrl;
+    ctrl.open();
   }
 
   private cycleAutoDownload(): void {
@@ -265,7 +321,7 @@ export struct FeedSettingsComponent {
               this.settingRow($r('app.media.ic_rename'), 'Rename', '')
             }
             .onClick(() => {
-              promptAction.showToast({ message: 'Rename not yet implemented' });
+              this.showRenameDialog();
             })
 
             ListItem() {
@@ -273,7 +329,7 @@ export struct FeedSettingsComponent {
                 'Change the tags of this podcast to help organize your subscriptions')
             }
             .onClick(() => {
-              promptAction.showToast({ message: 'Tags not yet implemented' });
+              this.showTagsDialog();
             })
 
             // Divider between Display and Playback

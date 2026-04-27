@@ -28,19 +28,28 @@ export struct InboxComponent {
   @State episodeCount: number = 0;
   @State currentSort: number = INBOX_SORT_DURATION_DESC;
   private unsubscribers: (() => void)[] = [];
-  private sortDialogController: CustomDialogController = new CustomDialogController({
-    builder: SortDialog({
-      sortOptions: this.getSortOptions(),
-      currentSort: this.currentSort,
-      onSortSelected: (sort: number): void => {
-        this.currentSort = sort;
-        this.vm.currentSort = sort;
-        this.loadData();
-      }
-    }),
-    alignment: DialogAlignment.Bottom,
-    customStyle: false
-  });
+
+  private showSortDialog(): void {
+    let ref: CustomDialogController | undefined;
+    const ctrl = new CustomDialogController({
+      builder: SortDialog({
+        sortOptions: this.getSortOptions(),
+        currentSort: this.currentSort,
+        onSortSelected: (sort: number): void => {
+          this.currentSort = sort;
+          this.vm.currentSort = sort;
+          this.loadData();
+        },
+        onClose: (): void => {
+          ref?.close();
+        }
+      }),
+      alignment: DialogAlignment.Bottom,
+      customStyle: false
+    });
+    ref = ctrl;
+    ctrl.open();
+  }
 
   private getSortOptions(): SortOption[] {
     const options: SortOption[] = [];
@@ -176,7 +185,7 @@ export struct InboxComponent {
             {
               value: 'Sort',
               action: () => {
-                this.sortDialogController.open();
+                this.showSortDialog();
               }
             },
             {

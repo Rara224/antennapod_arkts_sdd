@@ -7,6 +7,7 @@ export class HomeSectionConfig {
 @CustomDialog
 export struct HomeConfigureDialog {
   controller: CustomDialogController;
+  onClose?: () => void;
   sections: HomeSectionConfig[] = [
     { key: 'continue_listening', label: 'Continue listening', visible: true },
     { key: 'new_episodes', label: "See what's new", visible: true },
@@ -57,7 +58,7 @@ export struct HomeConfigureDialog {
           .fontColor('#333333')
           .layoutWeight(1)
           .onClick(() => {
-            this.controller.close();
+            this.onClose?.();
           })
         Button('OK')
           .fontSize(14)
@@ -65,7 +66,7 @@ export struct HomeConfigureDialog {
           .margin({ left: 12 })
           .onClick(() => {
             this.onConfirm(this.sections);
-            this.controller.close();
+            this.onClose?.();
           })
       }
       .width('100%')
