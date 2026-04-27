@@ -1,0 +1,173 @@
+name: Bug Report
+description: Report a bug or incorrect behavior
+title: "[Bug] "
+labels: ["bug"]
+assignees: ["MJ-CJM"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please fill in as much detail as possible so we can locate and fix the issue quickly.
+
+  - type: dropdown
+    id: page_location
+    attributes:
+      label: Page Location
+      description: Which page/module does the issue occur in?
+      options:
+        - Home
+        - Subscriptions
+        - Queue
+        - Inbox
+        - All Episodes
+        - Downloads
+        - Search
+        - Feed Detail
+        - Episode Detail
+        - Feed Settings
+        - Feed Info
+        - Online Feed View
+        - Add Feed
+        - Playback History
+        - Full Player
+        - Video Player
+        - Statistics
+        - Settings
+        - Settings Detail
+        - Mini Player
+        - Drawer
+        - OPML Import
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: page_location_other
+    attributes:
+      label: "Page Location (if Other)"
+      description: If you selected "Other" above, please specify the page or module
+      placeholder: "e.g. Notification panel, Widget, etc."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: bug_category
+    attributes:
+      label: Bug Category
+      description: What type of issue is this?
+      options:
+        - UI display issue
+        - Feature not working
+        - Crash / Force close
+        - Data loss / Inconsistency
+        - Playback issue
+        - Download issue
+        - Navigation / Routing issue
+        - Performance issue (lag / memory)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: bug_category_other
+    attributes:
+      label: "Bug Category (if Other)"
+      description: If you selected "Other" above, please describe the category
+      placeholder: "e.g. Sync issue, Permission issue, etc."
+    validations:
+      required: false
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: Describe what actually happens
+      placeholder: "e.g. After clicking the play button, the progress bar does not move and there is no audio output"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe what should happen instead
+      placeholder: "e.g. Audio should start playing and progress bar should advance"
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro_steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide minimal steps to reproduce
+      placeholder: |
+        1. Open the app
+        2. Go to "Downloads" page
+        3. Tap the play button on an episode
+        4. Observe...
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Screen Recording
+      description: Paste screenshots or screen recordings here (drag & drop supported)
+    validations:
+      required: false
+
+  - type: textarea
+    id: android_reference
+    attributes:
+      label: Android Reference Screenshot
+      description: If this is a consistency issue with Android, paste the Android screenshot for comparison
+    validations:
+      required: false
+
+  - type: textarea
+    id: error_log
+    attributes:
+      label: Error Log
+      description: Paste DevEco Studio logs or hilog output here
+      render: shell
+    validations:
+      required: false
+
+  - type: dropdown
+    id: device_type
+    attributes:
+      label: Device Type
+      options:
+        - Emulator
+        - Huawei Mate 60 Series
+        - Huawei Mate X5
+        - Huawei Pura 70 Series
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: device_type_other
+    attributes:
+      label: "Device Type (if Other)"
+      description: If you selected "Other" above, please specify the device model
+      placeholder: "e.g. Huawei Nova 12, Huawei MatePad Pro, etc."
+    validations:
+      required: false
+
+  - type: input
+    id: api_version
+    attributes:
+      label: API Version
+      description: "HarmonyOS API version (e.g. API 12)"
+      placeholder: "API 12"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other information that might help locate the issue
+    validations:
+      required: false

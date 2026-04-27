@@ -1,0 +1,56 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/ra/.ohos/config/default_antennapod_arkts_sdd-main_-nm68cbek5w7UePkTi9_tX0u75hqjmmMdldoVC5TKPc=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001A89111FC2FF44CFC706BDC3569496A0D768A81DA271D7E37D1CEBBD03D3CC75F6EFF85A178250",
+          "profile": "/Users/ra/.ohos/config/default_antennapod_arkts_sdd-main_-nm68cbek5w7UePkTi9_tX0u75hqjmmMdldoVC5TKPc=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/ra/.ohos/config/default_antennapod_arkts_sdd-main_-nm68cbek5w7UePkTi9_tX0u75hqjmmMdldoVC5TKPc=.p12",
+          "storePassword": "0000001A1EE22B262DF57457DC2693C848FC035BF2D7A4534FC0BD618199ABE47A1B322C673ECEC26D9D"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "6.0.2(22)",
+        "compatibleSdkVersion": "6.0.1(21)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

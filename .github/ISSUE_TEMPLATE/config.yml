@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Development Docs
+    url: https://github.com/fuxi-ailabs/antennapod_arkts/tree/main/docs
+    about: View migration docs and development experience

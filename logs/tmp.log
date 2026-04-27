@@ -1,0 +1,212 @@
+03-19 22:32:20.732   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [][OnPointerEvent:242] ac: down: 392
+03-19 22:32:20.732   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [P:D:392][OnPointerEvent:645] recv
+03-19 22:32:20.732   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     HandleInputEvent: eid:0,InputId:392,wid:38,ac:2
+03-19 22:32:20.733   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:392, fId:0, T:0, I=0, M=0
+03-19 22:32:20.735   28215-28215   C02220/IntentionClient          com.examp...od_arkts  I     in Connect, enter
+03-19 22:32:20.735   28215-28215   C02220/IntentionClient          com.examp...od_arkts  I     in Connect, leave
+03-19 22:32:20.735   28215-28215   C03905/AceDrag                  com.examp...od_arkts  I     [(100000:100000:scope)] RequestStatusTransition from 0 to 1.
+03-19 22:32:20.736   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:392, TTHNI:fId: 0{ T: Scroll, D: 16 };{ T: List, D: 19 };
+03-19 22:32:20.736   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:392, TTHRTI: T ClickRecognizer info: { T: Scroll }; { T: List }; { T: Column };T LongPressRecognizer info: { T: Image }; { T: Image };T PanRecognizer info: { T: Image }; { T: List }; { T: Scroll };
+03-19 22:32:20.737   28215-30513   C0390d/AceOverlay               com.examp...od_arkts  I     [(-1:100000:singleton)] RVS_ENABLE_CHECK Result: 0
+03-19 22:32:20.737   28215-28215   C03919/AceInputTracking         com.examp...od_arkts  I     [(100000:100000:scope)] Consumed id:392, last id:-1
+03-19 22:32:20.737   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     ConsumePointerEventInner: InputId:392,wid:38,pointId:0,srcType:2,rect:[0,0,1216,2688],notify:1
+03-19 22:32:20.786   28215-28215   C02220/IntentionClient          com.examp...od_arkts  I     in Connect, enter
+03-19 22:32:20.786   28215-28215   C02220/IntentionClient          com.examp...od_arkts  I     in Connect, leave
+03-19 22:32:20.859   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [][OnPointerEvent:242] ac: up: 393
+03-19 22:32:20.859   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [P:U:393][OnPointerEvent:645] recv
+03-19 22:32:20.859   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     HandleInputEvent: eid:1,InputId:393,wid:38,ac:4
+03-19 22:32:20.859   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:393, fId:0, T:1, I=0, M=0
+03-19 22:32:20.859   28215-28215   C0391e/AceGesture               com.examp...od_arkts  I     [(100000:100000:scope)] Click try accept
+03-19 22:32:20.860   28215-28215   C0390b/AceScrollable            com.examp...od_arkts  I     [(100000:100000:scope)] Scrollable GestureJudge:0, 0
+03-19 22:32:20.860   28215-28215   C0391e/AceGesture               com.examp...od_arkts  I     [(100000:100000:scope)] Click gesture judge reject
+03-19 22:32:20.860   28215-28215   C0391e/AceGesture               com.examp...od_arkts  I     [(100000:100000:scope)] Click try accept
+03-19 22:32:20.860   28215-28215   C0390b/AceScrollable            com.examp...od_arkts  I     [(100000:100000:scope)] Scrollable GestureJudge:0, 0
+03-19 22:32:20.860   28215-28215   C0391e/AceGesture               com.examp...od_arkts  I     [(100000:100000:scope)] Click gesture judge reject
+03-19 22:32:20.860   28215-28215   C03905/AceDrag                  com.examp...od_arkts  I     [(100000:100000:scope)] Trigger pan onReject
+03-19 22:32:20.860   28215-28215   C03905/AceDrag                  com.examp...od_arkts  W     [(100000:100000:scope)] Drag gesture has been canceled
+03-19 22:32:20.860   28215-28215   C03905/AceDrag                  com.examp...od_arkts  I     [(100000:100000:scope)] RequestStatusTransition from 1 to 0.
+03-19 22:32:20.860   28215-28215   C0391e/AceGesture               com.examp...od_arkts  I     [(100000:100000:scope)] Click try accept
+03-19 22:32:20.860   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] CLK RACC, T: Column
+03-19 22:32:20.861   28215-28215   C03919/AceInputTracking         com.examp...od_arkts  I     [(100000:100000:scope)] Consumed id:393, last id:-1
+03-19 22:32:20.861   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     ConsumePointerEventInner: InputId:393,wid:38,pointId:0,srcType:2,rect:[0,0,1216,2688],notify:1
+03-19 22:32:20.867   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] sync with js stack, id: , UINodeId: 7, preStackSize: 0, newStackSize: 1
+03-19 22:32:20.868   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] find in nowhere, navigation stack create new node, index: 0, removeSize: 0, name: episodeDetail.
+03-19 22:32:20.870   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] render current custom node: EpisodeDetailComponent
+03-19 22:32:20.872   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] load destination by buildermap
+03-19 22:32:20.872   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] episodeDetail lifecycle change to onWillAppear state. navdestinationId:221, navigationId:7
+03-19 22:32:20.872   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] last standard page index is 0
+03-19 22:32:20.872   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] serialize navDestination param success! its index: 0
+03-19 22:32:20.872   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] mountToParent navdestinationId:221, slot:0
+03-19 22:32:20.872   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] navDestination context is ready.
+03-19 22:32:20.873   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] episodeDetail lifecycle change to onAppear state. navdestinationId:221, navigationId:7
+03-19 22:32:20.873   28215-28215   C0391c/AceFocus                 com.examp...od_arkts  I     [(100000:100000:scope)] view: NavDestination/221 show
+03-19 22:32:20.873   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] transition start, disableAllAnimation: 0, animated: 1, isPopPage: 0, isDialog: 0, isReplace: 0, isCustomAnimation: 0
+03-19 22:32:20.874   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] episodeDetail lifecycle change to onWillShow state. navdestinationId:221, navigationId:7
+03-19 22:32:20.874   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] conditions are not met, don't update PageViewportConfig
+03-19 22:32:20.876   28215-28215   C01408/Text                     com.examp...od_arkts  I     Relayout: Need to layout first
+03-19 22:32:20.876   28215-28215   C01408/Text                     com.examp...od_arkts  I     Relayout: Need to layout first
+03-19 22:32:20.876   28215-28215   C01408/Text                     com.examp...od_arkts  I     Relayout: Need to layout first
+03-19 22:32:20.876   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] conditions are not met, don't enable/disable SystemBar
+03-19 22:32:20.876   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] episodeDetail lifecycle change to onShown state. navdestinationId:221, navigationId:7
+03-19 22:32:20.876   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] episodeDetail lifecycle change to onActive state. navdestinationId:221, navigationId:7
+03-19 22:32:20.876   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] can't find inner navigation
+03-19 22:32:20.877   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] navigation push animation start
+03-19 22:32:20.878   28215-28215   C01408/Text                     com.examp...od_arkts  W     generatePaintRegion: Call generatePaintRegion when paragraph is not formatted
+03-19 22:32:20.880   28215-28215   C0391c/AceFocus                 com.examp...od_arkts  I     [(100000:100000:scope)] Request focus on focusView: NavDestination/221.
+03-19 22:32:20.880   28215-28215   C0391c/AceFocus                 com.examp...od_arkts  I     [(100000:100000:scope)] FocusSwitch end, Stack/secure_field onBlur, NavDestination/secure_field onFocus, start: 2, end: 1, update: 2
+03-19 22:32:20.880   28215-28215   C03933/AceKeyboard              com.examp...od_arkts  I     [(100000:100000:scope)] current focus node: (NavDestination/221). isDynamic: 0
+03-19 22:32:20.880   28215-28215   C03933/AceKeyboard              com.examp...od_arkts  I     [(100000:100000:scope)] FrameNode(NavDestination/221) notNeedSoftKeyboard.
+03-19 22:32:20.889   28215-28215   C03913/AceText                  com.examp...od_arkts  W     [(100000:100000:scope)] destroy TxtParagraph with placeholderCnt_ 0, textAlign_ 0, count 0
+03-19 22:32:20.895   28215-28215   C02b61/PixelMap                 com.examp...od_arkts  E     set ashmem name failed
+03-19 22:32:21.494   28215-28215   C03922/AceNavigation            com.examp...od_arkts  I     [(100000:100000:scope)] navigation push animation end
+03-19 22:32:24.193   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [][OnPointerEvent:242] ac: down: 394
+03-19 22:32:24.193   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [P:D:394][OnPointerEvent:645] recv
+03-19 22:32:24.193   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     HandleInputEvent: eid:2,InputId:394,wid:38,ac:2
+03-19 22:32:24.194   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:394, fId:0, T:0, I=0, M=0
+03-19 22:32:24.194   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:394, TTHNI:fId: 0{ T: Row, D: 14 };
+03-19 22:32:24.194   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:394, TTHRTI: T ClickRecognizer info: { T: Row };
+03-19 22:32:24.194   28215-28215   C03919/AceInputTracking         com.examp...od_arkts  I     [(100000:100000:scope)] Consumed id:394, last id:-1
+03-19 22:32:24.194   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     ConsumePointerEventInner: InputId:394,wid:38,pointId:0,srcType:2,rect:[0,0,1216,2688],notify:1
+03-19 22:32:24.324   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [][OnPointerEvent:242] ac: up: 395
+03-19 22:32:24.324   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [P:U:395][OnPointerEvent:645] recv
+03-19 22:32:24.324   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     HandleInputEvent: eid:3,InputId:395,wid:38,ac:4
+03-19 22:32:24.325   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:395, fId:0, T:1, I=0, M=0
+03-19 22:32:24.325   28215-28215   C0391e/AceGesture               com.examp...od_arkts  I     [(100000:100000:scope)] Click try accept
+03-19 22:32:24.325   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] CLK RACC, T: Row
+03-19 22:32:24.325   28215-28215   A00000/PlaybackController       com.examp...od_arkts  I     playEpisode: 372
+03-19 22:32:24.325   28215-28215   C03919/AceInputTracking         com.examp...od_arkts  I     [(100000:100000:scope)] Consumed id:395, last id:-1
+03-19 22:32:24.325   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     ConsumePointerEventInner: InputId:395,wid:38,pointId:0,srcType:2,rect:[0,0,1216,2688],notify:1
+03-19 22:32:24.327   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #256 0x10D600 JsCreateAVPlayer Out
+03-19 22:32:24.327   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #71 0x5C2800 ctor
+03-19 22:32:24.327   28215-28215   C02b2b/PlayerImpl               com.examp...od_arkts  I     #105 PlayerImpl:0x67E518 traceId not valid
+03-19 22:32:24.328   28215-28215   C02b22/MediaUtils               com.examp...od_arkts  E     [a92ab108f84fe32, 0, 0] (GetClientBundleName(), 115): Error GetBundleNameForUid fail, uid is 20020064
+03-19 22:32:24.333   28215-28215   C02b24/TaskInner                com.examp...od_arkts  I     [a92ab108f84fe32, 0, 0] [Task]:>> OS_Ply_HiAppEvent groupId:HiAppEventGroup type:6 ctor
+03-19 22:32:24.333   28215-28215   C02b24/PipelineTreadPool        com.examp...od_arkts  I     [a92ab108f84fe32, 0, 0] (PipeLineThread(), 131): PipeLineThread groupId:OS_Ply_HiAppEvent1 type:6 created call
+03-19 22:32:24.333   28215-28215   C02b24/Thread                   com.examp...od_arkts  I     [a92ab108f84fe32, 0, 0] (CreateThread(), 97): thread OS_Ply_HiAppEvent1_S create success
+03-19 22:32:24.333   28215-28215   C02b24/Thread                   com.examp...od_arkts  W     [a92ab108f84fe32, 0, 0] (SetNameInternal(), 124): task name OS_Ply_HiAppEvent1_S exceed max size: 15
+03-19 22:32:24.333   28215-28215   C02b24/TaskInner                com.examp...od_arkts  I     [a92ab108f84fe32, 0, 0] [Task]:>> OS_Ply_HiAppEvent Init
+03-19 22:32:24.333   28215-1370    C02b24/PipelineTreadPool        com.examp...od_arkts  I     (Run(), 178): PipeLineThread OS_Ply_HiAppEvent1_S run enter
+03-19 22:32:24.333   28215-28215   C02d07/Verify                   com.examp...od_arkts  W     [a92ab108f84fe32, 0, 0] invalid configName=
+03-19 22:32:24.333   28215-28215   C02d07/ObserverMgr              com.examp...od_arkts  I     [a92ab108f84fe32, 0, 0] register processor=1 exit
+03-19 22:32:24.335   28215-28215   C02b2b/TaskQueue                com.examp...od_arkts  I     [a92ab108f84fe32, 0, 0] #45 0x162E00 Instance thread started [OS_AVPlayerNapi], curTimeUs: [995432779890]
+03-19 22:32:24.335   28215-28215   C02b2b/AVPlayerCallback         com.examp...od_arkts  I     [a92ab108f84fe32, 0, 0] #668 0x163AD8 Instances create
+03-19 22:32:24.336   28215-1373    C02b2b/TaskQueue                com.examp...od_arkts  I     #153 Enter TaskProcessor [OS_AVPlayerNapi], tid_: (1373)
+03-19 22:32:24.336   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     [a92ab108f84fe32, 0, 0] #191 0x5C2800 Constructor success
+03-19 22:32:24.336   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #3375 0x5C2800 JsSetOnCallback callbackName: stateChange success
+03-19 22:32:24.337   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #3375 0x5C2800 JsSetOnCallback callbackName: timeUpdate success
+03-19 22:32:24.337   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #3375 0x5C2800 JsSetOnCallback callbackName: seekDone success
+03-19 22:32:24.337   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #3375 0x5C2800 JsSetOnCallback callbackName: error success
+03-19 22:32:24.337   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #1322 0x5C2800 JsSetUrl Out
+03-19 22:32:24.340   28215-28215   C02b61/PixelMap                 com.examp...od_arkts  E     [a92ab108f84fe32, 0, 0] set ashmem name failed
+03-19 22:32:24.344   28215-30450   C02b2b/AVPlayerCallback         com.examp...od_arkts  I     #869 0x163AD8 Instance OnStateChanged is called, current state: 2
+03-19 22:32:24.344   28215-30450   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #3497 0x5C2800 notify initialized
+03-19 22:32:24.344   28215-1373    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #1256 0x5C2800 Set source network out
+03-19 22:32:24.346   28215-28215   A00000/PlaybackController       com.examp...od_arkts  I     AVPlayer state: initialized
+03-19 22:32:24.346   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #302 JsPrepare In
+03-19 22:32:24.346   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #319 0x5C2800 JsPrepare EnqueueTask In
+03-19 22:32:24.346   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #321 0x5C2800 JsPrepare EnqueueTask out
+03-19 22:32:24.346   28215-1373    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #263 0x5C2800 Prepare Task In
+03-19 22:32:24.346   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #337 0x5C2800 JsPrepare Out
+03-19 22:32:24.346   28215-30552   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #328 Wait Prepare Task Start
+03-19 22:32:26.349   28215-30552   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #332 Wait Prepare Task End
+03-19 22:32:35.230   28215-30441   C02b2b/AVPlayerCallback         com.examp...od_arkts  I     #1032 0x163AD8 OnDurationUpdateCb is called, duration: 3439777
+03-19 22:32:35.230   28215-30441   C02b2b/AVPlayerCallback         com.examp...od_arkts  I     #1143 0x163AD8 OnVideoSizeChangedCb is called, width = 0, height = 0
+03-19 22:32:35.230   28215-30441   C02b2b/AVPlayerCallback         com.examp...od_arkts  W     #1150 can not find video size changed callback!
+03-19 22:32:35.230   28215-30441   C02b2b/AVPlayerCallback         com.examp...od_arkts  I     #869 0x163AD8 Instance OnStateChanged is called, current state: 4
+03-19 22:32:35.230   28215-30441   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #3497 0x5C2800 notify prepared
+03-19 22:32:35.231   28215-1373    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #289 0x5C2800 Prepare Task Out
+03-19 22:32:35.237   28215-28215   A00000/PlaybackController       com.examp...od_arkts  I     AVPlayer state: prepared
+03-19 22:32:35.246   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #924 JsSetSpeed In
+03-19 22:32:35.246   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #964 0x5C2800 JsSetSpeed EnqueueTask In
+03-19 22:32:35.246   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #966 0x5C2800 JsSetSpeed Out
+03-19 22:32:35.246   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #386 JsPlay In
+03-19 22:32:35.246   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #407 0x5C2800 JsPlay EnqueueTask In
+03-19 22:32:35.246   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #409 0x5C2800 JsPlay EnqueueTask Out
+03-19 22:32:35.246   28215-1373    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #958 0x5C2800 Speed Task In
+03-19 22:32:35.246   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #427 0x5C2800 JsPlay Out
+03-19 22:32:35.247   28215-1373    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #962 0x5C2800 Speed Task Out
+03-19 22:32:35.247   28215-1373    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #344 0x5C2800 Play Task In
+03-19 22:32:35.247   28215-1373    C02b2b/MonitorClientObject      com.examp...od_arkts  I     #30 0x1F9020 EnableMonitor
+03-19 22:32:35.247   28215-30554   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #418 Wait JsPlay Task Start
+03-19 22:32:35.247   28215-1373    C02b2b/MonitorClient            com.examp...od_arkts  I     #83 0x1F9020 StartClick
+03-19 22:32:35.248   28215-28215   C01350/WantAgent                com.examp...od_arkts  I     [napi_want_agent1304]on get wantAgent
+03-19 22:32:35.248   28215-1751    C02b2b/AVPlayerCallback         com.examp...od_arkts  I     #946 OnSpeedDoneCb is called, speedMode: 1
+03-19 22:32:35.248   28215-1751    C02b2b/AVPlayerCallback         com.examp...od_arkts  W     #948 can not find speeddone callback!
+03-19 22:32:35.259   28215-30551   C01653/NativePreferences        com.examp...od_arkts  I     SaveXmlFile: file:/***/el2/***/play***refs, m:0.
+03-19 22:32:35.262   28215-1756    C01653/NativePreferences        com.examp...od_arkts  I     operator(): notify last***Time
+03-19 22:32:35.269   28215-1756    C01653/NativePreferences        com.examp...od_arkts  I     operator(): notify curr***iaId
+03-19 22:32:35.292   28215-30552   C01711/CONTINUOUS_TASK          com.examp...od_arkts  I     [StartBackgroundRunningExecuteCB:288] notification 6, continuousTaskId 7
+03-19 22:32:35.294   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [RegisterServiceStartCallback]RegisterServiceStartCallback
+03-19 22:32:35.294   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [CreateAVSession]RegisterServiceStartCallback res=0
+03-19 22:32:35.294   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [Enqueue]name=CreateAVSession
+03-19 22:32:35.295   28215-30553   C02b91/AVSession                com.examp...od_arkts  I     [GetService]enter GetService
+03-19 22:32:35.295   28215-30553   C02b91/AVSession                com.examp...od_arkts  I     [GetService]enter check SystemAbility
+03-19 22:32:35.295   28215-30553   C02b91/AVSession                com.examp...od_arkts  I     [AVSessionServiceProxy]constructor
+03-19 22:32:35.296   28215-30553   C02b91/AVSession                com.examp...od_arkts  I     [GetService]get service done
+03-19 22:32:35.296   28215-30553   C02b91/AVSession                com.examp...od_arkts  I     [RegisterClientDeathObserver]RegisterClientDeathObserver with ClientDeathStub success
+03-19 22:32:35.297   28215-30553   C02b91/AVSession                com.examp...od_arkts  I     [RegisterServiceStateListener]RegisterServiceStateListener enter
+03-19 22:32:35.297   28215-30553   C02b91/AVSession                com.examp...od_arkts  I     [RegisterServiceStateListener]RegisterServiceStateListener ret=0
+03-19 22:32:35.303   28215-1751    C02b2b/AVPlayerCallback         com.examp...od_arkts  I     #869 0x163AD8 Instance OnStateChanged is called, current state: 5
+03-19 22:32:35.303   28215-1751    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #3497 0x5C2800 notify playing
+03-19 22:32:35.304   28215-28215   A00000/PlaybackController       com.examp...od_arkts  I     AVPlayer state: playing
+03-19 22:32:35.305   28215-1373    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #374 0x5C2800 Play Task Out
+03-19 22:32:35.305   28215-30554   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #422 Wait JsPlay Task End
+03-19 22:32:35.305   28215-1751    C02b91/AVSession                com.examp...od_arkts  I     [OnAddSystemAbility]OnAddSystemAbility systemAbilityId=3010
+03-19 22:32:35.305   28215-1751    C02b91/AVSession                com.examp...od_arkts  I     [OnServiceStateChange]OnServiceStateChange enter isAddSystemAbility:1 isServiceDie:0
+03-19 22:32:35.375   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [NapiAVSession]construct
+03-19 22:32:35.375   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [NapiAVSession]construct
+03-19 22:32:35.375   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [NewInstance]sessionId=69F***, sessionType:audio
+03-19 22:32:35.375   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [Enqueue]name=Activate
+03-19 22:32:35.376   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [NapiAVSessionCallback]construct NapiAVSessionCallback
+03-19 22:32:35.376   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddSupportCommand]add support command for 0
+03-19 22:32:35.377   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddCallback]Add callback 0
+03-19 22:32:35.377   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddSupportCommand]add support command for 1
+03-19 22:32:35.382   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddCallback]Add callback 1
+03-19 22:32:35.382   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddSupportCommand]add support command for 7
+03-19 22:32:35.383   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddCallback]Add callback 7
+03-19 22:32:35.383   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddSupportCommand]add support command for 5
+03-19 22:32:35.384   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddCallback]Add callback 5
+03-19 22:32:35.384   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddSupportCommand]add support command for 6
+03-19 22:32:35.385   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddCallback]Add callback 6
+03-19 22:32:35.385   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddSupportCommand]add support command for 3
+03-19 22:32:35.386   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddCallback]Add callback 3
+03-19 22:32:35.386   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddSupportCommand]add support command for 4
+03-19 22:32:35.387   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AddCallback]Add callback 4
+03-19 22:32:35.387   28215-28215   A00000/Backgro...aybackManager  com.examp...od_arkts  I     Background playback started
+03-19 22:32:37.390   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [][OnPointerEvent:242] ac: down: 396
+03-19 22:32:37.390   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [P:D:396][OnPointerEvent:645] recv
+03-19 22:32:37.390   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     HandleInputEvent: eid:4,InputId:396,wid:38,ac:2
+03-19 22:32:37.391   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:396, fId:0, T:0, I=0, M=0
+03-19 22:32:37.392   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:396, TTHNI:fId: 0{ T: Column, D: 8 };
+03-19 22:32:37.392   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:396, TTHRTI: T ClickRecognizer info: { T: Column }; { T: Column };
+03-19 22:32:37.392   28215-28215   C03919/AceInputTracking         com.examp...od_arkts  I     [(100000:100000:scope)] Consumed id:396, last id:-1
+03-19 22:32:37.392   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     ConsumePointerEventInner: InputId:396,wid:38,pointId:0,srcType:2,rect:[0,0,1216,2688],notify:1
+03-19 22:32:37.401   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [][OnPointerEvent:242] ac: up: 397
+03-19 22:32:37.401   28215-28215   C02805/InputKeyFlow             com.examp...od_arkts  I     [P:U:397][OnPointerEvent:645] recv
+03-19 22:32:37.401   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     HandleInputEvent: eid:5,InputId:397,wid:38,ac:4
+03-19 22:32:37.404   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] ITK Id:397, fId:0, T:1, I=0, M=0
+03-19 22:32:37.404   28215-28215   C0391e/AceGesture               com.examp...od_arkts  I     [(100000:100000:scope)] Click try accept
+03-19 22:32:37.404   28215-28215   C03951/InputKeyFlow             com.examp...od_arkts  I     [(100000:100000:scope)] CLK RACC, T: Column
+03-19 22:32:37.404   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #464 JsPause In
+03-19 22:32:37.405   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #480 0x5C2800 JsPause EnqueueTask In
+03-19 22:32:37.405   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #482 0x5C2800 JsPause EnqueueTask Out
+03-19 22:32:37.405   28215-1373    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #434 0x5C2800 Pause Task In
+03-19 22:32:37.405   28215-28215   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #498 0x5C2800 JsPause Out
+03-19 22:32:37.405   28215-30552   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #489 Wait JsPause Task Start
+03-19 22:32:37.405   28215-28215   C03919/AceInputTracking         com.examp...od_arkts  I     [(100000:100000:scope)] Consumed id:397, last id:-1
+03-19 22:32:37.405   28215-28215   C04213/InputKeyFlow             com.examp...od_arkts  I     ConsumePointerEventInner: InputId:397,wid:38,pointId:0,srcType:2,rect:[0,0,1216,2688],notify:1
+03-19 22:32:37.407   28215-1373    C02b2b/MonitorClient            com.examp...od_arkts  I     #113 0x1F9020 StopClick
+03-19 22:32:37.407   28215-1753    C02b2b/MonitorClient            com.examp...od_arkts  I     #152 0xC807F8 objSet empty.
+03-19 22:32:37.407   28215-1753    C02b2b/MonitorClient            com.examp...od_arkts  I     #167 0xC807F8 ClickThread End
+03-19 22:32:37.407   28215-1753    C02b2b/MonitorClient            com.examp...od_arkts  I     #181 objSetsize 0, clientDestroy 0.
+03-19 22:32:37.453   28215-30441   C02b2b/AVPlayerCallback         com.examp...od_arkts  I     #869 0x163AD8 Instance OnStateChanged is called, current state: 6
+03-19 22:32:37.453   28215-30441   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #3497 0x5C2800 notify paused
+03-19 22:32:37.453   28215-1373    C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #452 0x5C2800 Pause Task Out
+03-19 22:32:37.453   28215-30552   C02b2b/AVPlayerNapi             com.examp...od_arkts  I     #493 Wait JsPause Task End
+03-19 22:32:37.453   28215-28215   A00000/PlaybackController       com.examp...od_arkts  I     AVPlayer state: paused
+03-19 22:32:37.453   28215-28215   C03f01/NAPI                     com.examp...od_arkts  I     ID: 1, cnt: 1
+03-19 22:32:37.456   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AVSessionEventHandler]construct
+03-19 22:32:37.456   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [AVSessionPostTask]AVSessionEventHandler create new: SetAVPlaybackState
+03-19 22:32:37.456   28215-28215   C02b91/AVSession                com.examp...od_arkts  I     [Enqueue]name=SetAVPlayback
+03-19 22:32:37.456   28215-1887    C02b91/AVSession                com.examp...od_arkts  I     [SetAVPlaybackState]SetAVPlaybackState:3
+03-19 22:32:37.557   28215-1887    C02b91/AVSession                com.examp...od_arkts  E     [operator()]SetAVPlaybackState:3 in syncExecutor timeout after err:0
