@@ -26,6 +26,21 @@ import { StatisticsComponent } from '../components/statistics/StatisticsComponen
 import { FullPlayerComponent } from '../components/playback/FullPlayerComponent';
 import { SearchPodcastsComponent } from '../components/discovery/SearchPodcastsComponent';
 import { CustomizeNavigationDialog, NavigationItem } from '../components/common/CustomizeNavigationDialog';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+const DOMAIN: number = 0x0000;
+const TAG: string = 'Index';
+
+// Default navigation items for the More menu
+const DEFAULT_NAV_ITEMS: NavigationItem[] = [
+  { key: 'episodes', label: 'Episodes', visible: true },
+  { key: 'downloads', label: 'Downloads', visible: true },
+  { key: 'playback_history', label: 'Playback history', visible: true },
+  { key: 'statistics', label: 'Statistics', visible: true },
+  { key: 'add_podcast', label: 'Add podcast', visible: true },
+  { key: 'customize_navigation', label: 'Customize navigation', visible: true },
+  { key: 'settings', label: 'Settings', visible: true }
+];
 
 @Entry
 @Component
@@ -50,6 +65,10 @@ struct Index {
     GlobalState.init(getContext(this)).then(async () => {
       PlaybackController.getInstance().restoreLastPlayedEpisode();
       await DefaultFeedInitializer.initDefaultFeedsIfEmpty();
+    }).catch((err: Error) => {
+      hilog.error(DOMAIN, TAG, 'GlobalState.init failed: %{public}s', err.message);
+      // DB init failed — let app load with limited functionality instead of being stuck forever
+      AppStorage.setOrCreate<boolean>('dbReady', true);
     });
   }
 
@@ -162,8 +181,18 @@ struct Index {
     this.showCustomizeNavigationDialog = false;
   }
 
-  private confirmCustomizeNavigation(_items: NavigationItem[]): void {
+  private confirmCustomizeNavigation(items: NavigationItem[]): void {
+    // Save navigation config — only persist items for the More menu area
+    AppStorage.setOrCreate<NavigationItem[]>('navigationItems', items);
     this.closeCustomizeNavigation();
+  }
+
+  private getNavItems(): NavigationItem[] {
+    const saved = AppStorage.get<NavigationItem[]>('navigationItems');
+    if (saved !== undefined && saved.length > 0) {
+      return saved;
+    }
+    return DEFAULT_NAV_ITEMS;
   }
 
   @Builder
